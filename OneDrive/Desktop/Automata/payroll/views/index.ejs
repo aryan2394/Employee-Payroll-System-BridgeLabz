@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Dashboard</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <h1>Employee Dashboard</h1>
+
+  <a class="button" href="/add">Add Employee</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Basic Salary</th>
+        <th>Tax (12%)</th>
+        <th>Net Salary</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (employees.length === 0) { %>
+        <tr>
+          <td colspan="6">No employees to show.</td>
+        </tr>
+      <% } else { %>
+        <% employees.forEach(emp => { %>
+          <tr>
+            <td><%= emp.name %></td>
+            <td><%= emp.department %></td>
+            <td><%= emp.basicSalary.toFixed(2) %></td>
+            <td><%= (emp.basicSalary * 0.12).toFixed(2) %></td>
+            <td><%= (emp.basicSalary * 0.88).toFixed(2) %></td>
+            <td>
+              <a class="button" href="/edit/<%= emp.id %>">Edit</a>
+              <a class="button delete-btn" href="/delete/<%= emp.id %>" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+          </tr>
+        <% }); %>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>
