@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,html{
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+.parent{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.card{
+  border: 1px solid white;
+  padding: 10px;
+}
+.card img{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  object-position: top;
+}
+.card h5 {
+  width: 200px;
+  word-wrap: break-word;
+}
+
